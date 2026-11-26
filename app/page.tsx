@@ -358,7 +358,7 @@ export default function Home() {
         {/* 08 — Difference */}
         <section className="bg-cream-mist px-5 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-6xl">
-            <div className="grid items-end gap-10 md:grid-cols-[1.1fr_0.9fr]">
+            <div className="grid items-stretch gap-10 md:grid-cols-[1.1fr_0.9fr]">
               <Reveal>
                 <p className="font-display text-sm tracking-[0.22em] text-accent uppercase">
                   Designed for Your Lifestyle
@@ -375,16 +375,16 @@ export default function Home() {
                 </p>
               </Reveal>
 
-              <Reveal delay={100}>
-                <div className="flex items-center gap-6 border border-line bg-surface/70 px-6 py-8">
-                  <div className="relative h-36 w-28 shrink-0">
+              <Reveal delay={100} className="h-full">
+                <div className="flex h-full items-center gap-5 border border-line bg-surface/70 px-5 md:gap-6 md:px-6">
+                  <div className="relative h-48 w-36 shrink-0 sm:h-52 sm:w-40 md:h-56 md:w-44">
                     <Image
                       src={BRAND.sachet}
                       alt="GUMO sachet"
                       fill
                       unoptimized
-                      className="object-contain"
-                      sizes="112px"
+                      className="object-contain object-left"
+                      sizes="176px"
                     />
                   </div>
                   <div>
