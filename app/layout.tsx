@@ -55,8 +55,11 @@ export const metadata: Metadata = {
     images: ["/brand/product-sachet-v2.png"],
   },
   icons: {
-    icon: "/brand/favicon.png",
-    apple: "/brand/logo-mark-framed.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/brand/favicon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/brand/apple-touch-icon.png",
   },
 };
 

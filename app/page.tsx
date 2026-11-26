@@ -325,16 +325,30 @@ export default function Home() {
               <h3 className="font-display mt-16 text-2xl font-semibold text-accent-deep">
                 Our 12 Plant Ingredients
               </h3>
-              <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
-                {PLANTS.map((plant) => (
-                  <div key={plant.en} className="border-t border-line pt-4">
-                    <p className="font-display text-base font-semibold text-accent-deep">
-                      {plant.en}
-                    </p>
-                    <p className="font-thai mt-1 text-sm text-muted">
-                      {plant.th}
-                    </p>
-                  </div>
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:grid-cols-6">
+                {PLANTS.map((plant, index) => (
+                  <article key={plant.en} className="group">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-surface">
+                      <Image
+                        src={plant.image}
+                        alt={`${plant.en} — ${plant.th}`}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-accent-deep/80 via-accent-deep/35 to-transparent px-2.5 pt-12 pb-2.5">
+                        <p className="font-display text-xs font-semibold text-cream-mist md:text-sm">
+                          {plant.en}
+                        </p>
+                        <p className="font-thai mt-0.5 text-[11px] text-cream-mist/85">
+                          {plant.th}
+                        </p>
+                      </div>
+                      <span className="absolute top-2 right-2 font-display text-[10px] tracking-wide text-cream-mist/90">
+                        {index + 1}/12
+                      </span>
+                    </div>
+                  </article>
                 ))}
               </div>
             </Reveal>

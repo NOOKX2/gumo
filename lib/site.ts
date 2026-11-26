@@ -63,18 +63,66 @@ export const PRODUCT_POINTS = [
 ] as const;
 
 export const PLANTS = [
-  { en: "Beetroot", th: "บีทรูท" },
-  { en: "Acerola", th: "อะเซโรลา เชอร์รี" },
-  { en: "Papaya", th: "มะละกอ" },
-  { en: "Carrot", th: "แครอท" },
-  { en: "Pumpkin", th: "ฟักทอง" },
-  { en: "Ginger", th: "ขิง" },
-  { en: "Lime", th: "มะนาว" },
-  { en: "Spinach", th: "ปวยเล้ง" },
-  { en: "Barley Grass", th: "ต้นอ่อนข้าวบาร์เลย์" },
-  { en: "Spirulina", th: "สาหร่ายสไปรูลินา" },
-  { en: "Blackcurrant", th: "แบล็กเคอร์แรนต์" },
-  { en: "Açaí", th: "อาซาอิ" },
+  {
+    en: "Beetroot",
+    th: "บีทรูท",
+    image: "/brand/ingredients/beetroot.jpg",
+  },
+  {
+    en: "Acerola",
+    th: "อะเซโรลา เชอร์รี",
+    image: "/brand/ingredients/acerola.jpg",
+  },
+  {
+    en: "Papaya",
+    th: "มะละกอ",
+    image: "/brand/ingredients/papaya.jpg",
+  },
+  {
+    en: "Carrot",
+    th: "แครอท",
+    image: "/brand/ingredients/carrot.jpg",
+  },
+  {
+    en: "Pumpkin",
+    th: "ฟักทอง",
+    image: "/brand/ingredients/pumpkin.jpg",
+  },
+  {
+    en: "Ginger",
+    th: "ขิง",
+    image: "/brand/ingredients/ginger.jpg",
+  },
+  {
+    en: "Lime",
+    th: "มะนาว",
+    image: "/brand/ingredients/lime.jpg",
+  },
+  {
+    en: "Spinach",
+    th: "ปวยเล้ง",
+    image: "/brand/ingredients/spinach.jpg",
+  },
+  {
+    en: "Barley Grass",
+    th: "ต้นอ่อนข้าวบาร์เลย์",
+    image: "/brand/ingredients/barley-grass.jpg",
+  },
+  {
+    en: "Spirulina",
+    th: "สาหร่ายสไปรูลินา",
+    image: "/brand/ingredients/spirulina.jpg",
+  },
+  {
+    en: "Blackcurrant",
+    th: "แบล็กเคอร์แรนต์",
+    image: "/brand/ingredients/blackcurrant.jpg",
+  },
+  {
+    en: "Açaí",
+    th: "อาซาอิ",
+    image: "/brand/ingredients/acai.jpg",
+  },
 ] as const;
 
 export const DIFFERENCE_POINTS = [

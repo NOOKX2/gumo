@@ -7,6 +7,7 @@ import { NAV_LINKS, TIKTOK_SHOP_URL } from "@/lib/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHref, setActiveHref] = useState<string>("#home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -16,11 +17,58 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    const sectionIds = NAV_LINKS.map((link) => link.href.slice(1));
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0),
+          );
+
+        if (visible[0]?.target?.id) {
+          setActiveHref(`#${visible[0].target.id}`);
+        }
+      },
+      {
+        rootMargin: "-28% 0px -55% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      },
+    );
+
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const linkClass = (href: string, mobile = false) => {
+    const active = activeHref === href;
+    if (mobile) {
+      return `border-b border-line py-3 text-base transition-colors ${
+        active
+          ? "font-semibold text-[#3f7a3d]"
+          : "text-accent-deep/55"
+      }`;
+    }
+    return `text-sm tracking-wide transition-colors ${
+      active
+        ? "font-semibold text-[#006400]"
+        : "text-muted hover:text-accent-deep"
+    }`;
+  };
 
   return (
     <header
@@ -44,7 +92,8 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm tracking-wide text-muted transition-colors hover:text-accent-deep"
+              className={linkClass(link.href)}
+              aria-current={activeHref === link.href ? "true" : undefined}
             >
               {link.label}
             </a>
@@ -98,7 +147,8 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="border-b border-line py-3 text-base text-accent-deep"
+                className={linkClass(link.href, true)}
+                aria-current={activeHref === link.href ? "true" : undefined}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
