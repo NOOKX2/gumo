@@ -376,15 +376,15 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={100} className="h-full">
-                <div className="flex h-full items-center gap-5 border border-line bg-surface/70 px-5 md:gap-6 md:px-6">
-                  <div className="relative h-48 w-36 shrink-0 sm:h-52 sm:w-40 md:h-56 md:w-44">
+                <div className="flex h-full items-center gap-6 border border-line bg-surface/70 px-6">
+                  <div className="relative h-36 w-28 shrink-0">
                     <Image
                       src={BRAND.sachet}
                       alt="GUMO sachet"
                       fill
                       unoptimized
-                      className="object-contain object-left"
-                      sizes="176px"
+                      className="object-contain"
+                      sizes="112px"
                     />
                   </div>
                   <div>
