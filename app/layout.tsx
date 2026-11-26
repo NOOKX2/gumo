@@ -26,7 +26,11 @@ export const metadata: Metadata = {
   description: SITE.description,
   applicationName: SITE.name,
   keywords: [
+    "gumo",
     "GUMO",
+    "gumo gummy",
+    "gumo gummies",
+    "กัมมี่ผัก",
     "กูโม่",
     "กัมมี่ผักผลไม้",
     "พรีไบโอติก",
